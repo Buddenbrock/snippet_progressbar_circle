@@ -1,0 +1,74 @@
+@import 'settings';
+@import 'progress_percent';
+
+.progress,
+.progress * {
+  box-sizing: content-box;
+}
+
+.progress {
+  border-radius: 50%;
+  float: left;
+  height: 10.5rem;
+  margin-right: -1.5rem;
+  position: relative;
+  width: 10.5rem;
+  transform: rotate(180deg);
+  border: 1.5rem solid #fff;
+
+  &:first-child {
+    margin-left: 4%;
+  }
+
+  &__overlay {
+    background-color: $background;
+    border-radius: 50%;
+    font-size: 14px;
+    height: 8rem;
+    left:50%;
+    position: absolute;
+    top:50%;
+    transform: translate(-50%, -50%) rotate(-180deg);
+    width: 8rem;
+    transition: width .3s ease, height .3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      line-height: 40px;
+      margin-top: -20px;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      width: 100%;
+    }
+
+    button {
+      border: .15rem solid $progress-active;
+      position: absolute;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 50%;
+      font-style: italic;
+      bottom: 1rem;
+      cursor: pointer;
+    }
+  }
+
+  &--half {
+    height: 30rem;
+    width: 30rem;
+    transform: rotate(-120deg);
+
+    .progress__overlay {
+      height: 25.5rem;
+      width: 25.5rem;
+      transform: translate(-50%, -50%) rotate(120deg);
+    }
+
+    p {
+      transform: scale(2.5);
+    }
+  }
+}
